@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+  node:
+    build: ./
+    container_name: boom-platform-api
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+      - /home/node/app/db
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DB_ENV=docker
+      - REDIS_HOST=redis
+      - REDIS_ENABLED=true
+
+  mongo:
+    image: mongo:4
+    container_name: mongo
+    ports:
+      - '27017:27017'
+
+  seeder:
+    build: ./db
+    volumes:
+      - ./db:/home/mongo/db
+    links:
+      - mongo
+
+  redis:
+    image: redis:6
+    container_name: cache
+    ports:
+      - '6379:6379'

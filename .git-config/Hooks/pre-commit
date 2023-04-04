@@ -1,0 +1,22 @@
+#!/bin/sh
+# husky
+
+# Created by Husky v4.3.0 (https://github.com/typicode/husky#readme)
+#   At: 2021-1-21 4:44:26 PM
+#   From: undefined (https://github.com/typicode/husky#readme)
+
+local_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+valid_branch_regex="^(feature|task|bug|hotfix|release)\/BW-[0-9]{3,}:*.*$|develop"
+
+message="There is something wrong with your branch name. Branch names in this project must adhere to this contract: {one of these folders: feature - task - bug} BW-###-my-feature-name. Your commit will be rejected. You should rename your branch to a valid name and try again."
+
+if [[ ! $local_branch =~ $valid_branch_regex ]]
+then
+    echo "$message $local_branch"
+    exit 1
+else
+    . "$(dirname "$0")/husky.sh"
+fi
+
+exit 0

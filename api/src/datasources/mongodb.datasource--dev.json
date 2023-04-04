@@ -1,0 +1,6 @@
+{
+  "name": "mongodb",
+  "connector": "mongodb",
+  "url" : "mongodb://admin:admin@localhost:27017/marketplace?authSource=admin&readPreference=primary&appname=API&directConnection=true&ssl=false",
+  "useNewUrlParser": true
+}

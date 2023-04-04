@@ -1,0 +1,18 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      function isAdmin() {
+        return request.auth.token.roles.hasAny(['admin'])
+      }
+      function isSuperAdmin() {
+        return request.auth.token.roles.hasAny(['superAdmin'])
+      }
+      function hasValidRoles(){
+        return ['member', 'merchant','admin','superAdmin'].hasAll(request.resource.data.roles)
+      }
+      allow read, delete: if (request.auth.uid == uid || isAdmin() || isSuperAdmin());  
+      allow update: if ((((request.auth.uid == uid || isAdmin()) && (resource.data.roles.join(',') == request.resource.data.roles.join(','))) || isSuperAdmin()) && hasValidRoles());
+      allow create: if ((isSuperAdmin() && hasValidRoles()) || ((isAdmin() || request.auth.uid == uid) && request.resource.data.roles.hasOnly(['member', 'merchant'])));
+    }
+  }
+}

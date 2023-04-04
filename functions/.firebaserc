@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "boom-platform-385f1",
+    "production": "boom-platform-prod",
+    "staging": "boom-platform-385f1",
+    "qa": "boom-platform--qa"
+  }
+}

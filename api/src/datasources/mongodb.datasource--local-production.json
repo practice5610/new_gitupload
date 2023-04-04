@@ -1,0 +1,7 @@
+{
+  "name": "mongodb",
+  "connector": "mongodb",
+  "url": "mongodb://MoobUser:M00bUser1321%403m8p@147.182.216.224:27017/marketplace?authSource=admin&readPreference=primary&appname=API&directConnection=true&ssl=true",
+  "useNewUrlParser": true,
+  "sslValidate": false
+}

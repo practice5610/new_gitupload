@@ -1,0 +1,11 @@
+# dependencies
+node_modules/
+
+#parcel generated files
+public/
+
+# Transpiled JavaScript files from Typescript
+dist/
+
+# Cache files
+.cache/

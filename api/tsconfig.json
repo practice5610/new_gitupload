@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@loopback/build/config/tsconfig.common.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "target": "ES2017",
+    "rootDir": "./",
+    "outDir": "dist",
+    "esModuleInterop": true
+  },
+  "include": [
+    "src",
+    "service-account-file--dev.json",
+    "service-account-file--qa.json",
+    "service-account-file--prod.json",
+    "service-account-file--migration-source.json"
+  ]
+}

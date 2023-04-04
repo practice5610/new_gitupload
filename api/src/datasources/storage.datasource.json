@@ -1,0 +1,11 @@
+{
+  "name": "amazon-s3",
+  "connector": "loopback-component-storage",
+  "provider": "amazon",
+  "keyId": "7FQDDWZ6FEBNUXGFBYYP",
+  "key": "tl6TpQ8kyC6yFuyDBibP2JAwulgiXGvHVPcTYiAczCk",
+  "maxFileSize": "2097152",
+  "allowedContentTypes": ["image/jpg", "image/jpeg", "image/png"],
+  "region": "us-east-1",
+  "endpoint": "https://nyc3.digitaloceanspaces.com"
+}
